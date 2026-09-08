@@ -1,0 +1,6 @@
+interface:
+  display_name: "Project Working Loop"
+  short_description: "Run one documented project through verified steps"
+  default_prompt: "Use $project-working-loop for this session; I confirm that I want a documented project with ordered steps."
+policy:
+  allow_implicit_invocation: false
