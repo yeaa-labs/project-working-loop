@@ -47,10 +47,14 @@ Step 1 的 `note.md` 原定写两条建议。用户补充“练习回忆时不�
 - 用户范围：`$HOME/.agents/skills`
 - 仓库范围：仓库根目录的 `.agents/skills`
 
-用户范围适合自己的所有项目；仓库范围只随当前仓库使用。二者只选一个。下面的命令假定 `repo_root` 是下载或解压后的仓库根目录，所有路径都加了引号，因此可以包含空格。
+用户范围适合自己的所有项目；仓库范围只随当前仓库使用。二者只选一个。
+
+**同名 Skill 只能存在一份。**如果 `$HOME/.agents/skills`、目标仓库的 `.agents/skills` 或 `$HOME/.codex/skills` 中已经有另一个名为 `project-working-loop` 的 Skill，Codex 不会报错，但 `$project-working-loop` 将不再注入任何内容，代理会像没有安装一样工作。安装前先检查这三个位置；已有旧版本时，先移除或改名，再安装这一份。（Codex CLI 0.145 实测。）
+
+下面的命令假定 `repo_root` 是下载或解压后的仓库根目录，所有路径都加了引号，因此可以包含空格。
 
 ```sh
-repo_root="/path/to/downloaded/project-loop-open-source"
+repo_root="/path/to/downloaded/project-working-loop"
 source_skill="$repo_root/skills/project-working-loop"
 
 # 用户范围：
@@ -79,7 +83,7 @@ fi
 可以把下载目录中的 `skills/project-working-loop/SKILL.md` 明确交给代理阅读，并让它能访问同目录的 `assets/project-control.template.md`。例如：
 
 ```text
-Read "/path/to/downloaded/project-loop-open-source/skills/project-working-loop/SKILL.md".
+Read "/path/to/downloaded/project-working-loop/skills/project-working-loop/SKILL.md".
 Keep its assets/project-control.template.md available. Use this workflow for this
 session; I explicitly adopt it.
 ```
