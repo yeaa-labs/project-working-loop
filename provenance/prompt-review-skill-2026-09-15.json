@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "copied_on": "2026-09-15",
+  "source_machine": "Mac Mini",
+  "name": "ye-prompt-review",
+  "source_directory": "~/.codex/skills/ye-prompt-review",
+  "source_license_status": "NOASSERTION",
+  "source_license_files_found": [],
+  "license_grant_added": false,
+  "repository_license_preserved": "LICENSE",
+  "skill_executed": false,
+  "external_runtime_dependencies": [
+    {
+      "name": "deepseek-indep-review",
+      "required_for": "Review Mode",
+      "bundled": false
+    },
+    {
+      "name": "gpt-6-astra subagent at high reasoning",
+      "required_for": "Consultant and Review Modes",
+      "bundled": false
+    }
+  ],
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 4107,
+      "sha256": "5745c14432892eba08bebb6cf3577566fb14b101204457790f3ed80caa581434"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 277,
+      "sha256": "017f21e144e2b8524dc0f0af17901606dd2ca277f63693b335c7620d6723c924"
+    },
+    {
+      "path": "references/review-contract.md",
+      "bytes": 10694,
+      "sha256": "c8fb5d215fd471b1110ee181b827a0ee4c9fbf9f2f1e915c2f7a3e5d97d390a3"
+    }
+  ]
+}

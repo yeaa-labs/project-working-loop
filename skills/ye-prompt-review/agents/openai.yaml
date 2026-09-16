@@ -1,0 +1,6 @@
+interface:
+  display_name: "YE Prompt Review"
+  short_description: "Multi-role consultation and independent review"
+  default_prompt: "Use $ye-prompt-review to review this work from every materially relevant professional perspective."
+policy:
+  allow_implicit_invocation: true
