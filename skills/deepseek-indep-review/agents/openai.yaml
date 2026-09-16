@@ -1,0 +1,6 @@
+interface:
+  display_name: "DeepSeek Independent Review"
+  short_description: "Verify completion of large or consequential work"
+  default_prompt: "Use $deepseek-indep-review for high-confidence large or consequential work requiring independent completion verification."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "copied_on": "2026-09-16",
+  "source_machine": "Mac Mini",
+  "source_license_status": "NOASSERTION",
+  "license_grant_added": false,
+  "repository_license_preserved": "LICENSE",
+  "runtime_dependencies": [
+    "Python 3.10 or later; standard library only",
+    "DeepSeek API access with a locally configured DEEPSEEK_API_KEY"
+  ],
+  "skills": [
+    {
+      "name": "deepseek-indep-review",
+      "source_directory": "~/.codex/skills/deepseek-indep-review",
+      "source_license_files_found": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 9410,
+          "sha256": "9bc24efb403cfed00458c6b2037438716937b2edbe7d7acce316dddb1b83d094"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "bytes": 313,
+          "sha256": "6cb781b09ffa470fc03ef99a0bc4d16b4885075bf473aefcef5eace45a5c4e9f"
+        },
+        {
+          "path": "references/auditor-contract.md",
+          "bytes": 10192,
+          "sha256": "5dc6d2843ff45c1e4e03d1be57f2fffd99f27eedeb461db6de5d92403804752b"
+        },
+        {
+          "path": "scripts/deepseek_verify.py",
+          "bytes": 31354,
+          "sha256": "6a7631fede38480e2c5c2ed6bfaaed80c8935c0bc1831abc27a0747a0b818bef"
+        },
+        {
+          "path": "tests/test_deepseek_verify.py",
+          "bytes": 18789,
+          "sha256": "282b2f965254764b785104b9201d2edf71eb605290191f131e35ed04a9459559"
+        }
+      ],
+      "excluded": [
+        ".pytest_cache/.gitignore",
+        ".pytest_cache/CACHEDIR.TAG",
+        ".pytest_cache/README.md",
+        ".pytest_cache/v/cache/nodeids",
+        "scripts/__pycache__/deepseek_verify.cpython-314.pyc",
+        "tests/__pycache__/test_deepseek_verify.cpython-314-pytest-9.0.3.pyc",
+        "tests/__pycache__/test_deepseek_verify.cpython-314.pyc"
+      ]
+    },
+    {
+      "name": "verification-before-completion",
+      "source_directory": "~/.codex/skills/verification-before-completion",
+      "source_license_files_found": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 4201,
+          "sha256": "ea52d15aabaf72bc6b558efe2c126f161b53961090ddcd712000273bfe8c7b6c"
+        }
+      ],
+      "excluded": []
+    }
+  ]
+}
