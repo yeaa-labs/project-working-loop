@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "timezone": "America/New_York",
+  "notion": {
+    "expected_account": null,
+    "application_archive": {
+      "id": null,
+      "url": null,
+      "all_view_id": null,
+      "expected_title": "Application Archive",
+      "preferred_access": "internal_browser",
+      "schema": {
+        "object_kind": "database",
+        "properties": {
+          "title": "Position Title",
+          "company": "Company",
+          "status": "Status",
+          "applied_date": "Applied Date",
+          "interview_date": "Interview Date",
+          "contact": "Contact",
+          "history": "Note",
+          "url": null
+        },
+        "status_mapping": {
+          "submitted_browser_confirmed": "Application Submitted",
+          "submitted_user_confirmed": "Application Submitted",
+          "prefilled_submission_unconfirmed": "Needs Input",
+          "prefilled_needs_review": "Needs Input",
+          "ready_for_user_review": "Application Ready",
+          "researching": "Due Diligence",
+          "skipped": "Skipped"
+        },
+        "dedup_key": [
+          "company",
+          "requisition_id_or_canonical_url"
+        ],
+        "empty_summary_properties": [
+          "Contact"
+        ],
+        "body_template": {
+          "id": null,
+          "url": null,
+          "expected_title": "Application · Contacts",
+          "contacts": {
+            "expected_title": "Contacts",
+            "template_data_source_id": null,
+            "columns": [
+              "联系人",
+              "职务／团队",
+              "渠道",
+              "最后联系日期",
+              "下一步"
+            ]
+          },
+          "instance_resolution": "Resolve a distinct Contacts child data source inside each exact application item; template source ID is for validation only. Write notes/history into the application properties.history field."
+        },
+        "history_storage": {
+          "location": "application_property",
+          "property_key": "history",
+          "body_notes_section": false
+        }
+      },
+      "observed_access": {}
+    },
+    "company_poc": {
+      "id": null,
+      "url": null,
+      "all_view_id": null,
+      "expected_title": "Company PoC",
+      "preferred_access": "internal_browser",
+      "schema": {
+        "object_kind": "database",
+        "properties": {
+          "title": "公司",
+          "funding_stage": "融资阶段",
+          "checked_at": "资料核验日期"
+        },
+        "body_template": {
+          "id": null,
+          "url": null,
+          "expected_title": "Company · Contacts",
+          "default_scope": "all_views",
+          "contacts": {
+            "expected_title": "Contacts",
+            "template_data_source_id": null,
+            "columns": [
+              "联系人",
+              "LinkedIn／身份链接",
+              "关系类型",
+              "职务／当前所属公司",
+              "团队／适用范围",
+              "LinkedIn 连接度",
+              "熟悉程度（用户确认）",
+              "联系偏好／授权范围",
+              "可介绍目标／路径",
+              "最近互动日期",
+              "核验日期",
+              "来源／验证范围",
+              "关系变化记录",
+              "联系渠道"
+            ],
+            "group_by": "关系类型",
+            "relationship_types": [
+              "认识的现任员工",
+              "外部介绍人／共同联系人",
+              "现任员工（尚不认识）",
+              "历史员工／待核实"
+            ]
+          },
+          "instance_resolution": "Resolve the Contacts child database inside the exact company item; template source ID is validation-only, never a destination for real records. Read the template filling instructions. Use one row per verified identity per company with multiple team scopes. Reuse the same identity URL across companies and check existing relationship facts before updates; this layout does not implement automatic cross-company synchronization."
+        },
+        "company_name_link": {
+          "property_key": "title",
+          "target": "verified_linkedin_company_page",
+          "storage": "hyperlink_on_company_name",
+          "separate_url_property": false
+        },
+        "omitted_company_properties": [
+          "官网",
+          "LinkedIn 公司页",
+          "员工数（LinkedIn）",
+          "团队／业务单元",
+          "资料来源／覆盖范围",
+          "内推流程／适用范围",
+          "内推规则来源"
+        ],
+        "schema_policy": "Only company name (hyperlinked to verified LinkedIn company URL), funding stage and verification date at company level. Do not recreate omitted properties. Multiple team scopes remain in Contacts. Omission of employee count is a display/storage preference, not evidence that funding stage proves headcount."
+      },
+      "observed_access": {},
+      "limitations": [
+        "Counts cover unique observed identities within each company category; categories must not be added into a company mutual total.",
+        "Application-specific requests, receipts and messages remain in application_archive.properties.history."
+      ]
+    },
+    "rules_and_templates": {
+      "id": null,
+      "url": null,
+      "expected_title": "Career Rules & Templates",
+      "expected_version": null,
+      "expected_status": "用户已确认",
+      "sections": {
+        "job_search": "ye-Job Search & Application",
+        "application_archive": "Application Archive 的填写规则",
+        "company_networking": "ye-Company Networking & PoC",
+        "company_poc": "Company PoC 的填写规则",
+        "outreach_templates": "Outreach 模板与菜单",
+        "experience_guidance": "经历模块：建议性措辞",
+        "cta_selection": "CTA 按对象选择",
+        "sources_and_boundaries": "来源、版本与待确认边界"
+      },
+      "end_marker": null,
+      "preferred_access": "internal_browser",
+      "schema": {
+        "object_kind": "page",
+        "content_model": "approved_rules_with_required_sections_and_end_marker",
+        "requires_full_read": true
+      },
+      "observed_access": {},
+      "parent_database": {
+        "id": null,
+        "url": null,
+        "expected_title": "Professional Archive",
+        "view_id": null
+      }
+    },
+    "search_runs": {
+      "id": null,
+      "url": null,
+      "expected_title": "Job Search Runs",
+      "expected_version": null,
+      "sections": {
+        "blank_batch_template": "批次模板（空白）",
+        "candidate_results": "候选结果",
+        "verification_receipts": "核验与回执"
+      },
+      "end_marker": null,
+      "preferred_access": "internal_browser",
+      "schema": {
+        "object_kind": "page",
+        "child_page_model": "one_distinct_child_page_per_batch",
+        "batch_template_fields": [
+          "batch_id",
+          "timezone",
+          "rules_version",
+          "query_sources",
+          "daily_history_coverage"
+        ],
+        "candidate_fields": [
+          "dates_and_source",
+          "fit",
+          "gaps",
+          "decision",
+          "application_link"
+        ],
+        "receipt_fields": [
+          "uncertainty",
+          "next_action",
+          "readback"
+        ]
+      },
+      "observed_access": {},
+      "parent_database": {
+        "id": null,
+        "url": null,
+        "expected_title": "Professional Archive",
+        "view_id": null
+      }
+    }
+  },
+  "operational_state_path": null,
+  "legacy_evidence": {},
+  "limitations": [
+    "Access observations are dated evidence, not future permission guarantees.",
+    "No scheduler or API access grant is installed.",
+    "Privacy of search_runs must be verified live before private data is read or written."
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "copied_on": "2026-09-15",
+  "source_machine": "Mac Mini",
+  "source_license_status": "NOASSERTION",
+  "source_license_files_found": [],
+  "license_grant_added": false,
+  "repository_license_preserved": "LICENSE",
+  "skills_executed": false,
+  "tests_executed": false,
+  "verification_document_status": "Historical source evidence only; not verification of this published snapshot",
+  "configuration_status": "Unconfigured public template; bind and verify private Notion destinations locally before use",
+  "test_limitation": "Bundled tests expect configured bindings. They are preserved unchanged and are not expected to pass against null public-template bindings.",
+  "skills": [
+    {
+      "name": "ye-company-networking-poc",
+      "source_directory": "~/.codex/skills/ye-company-networking-poc",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "source_sha256": "b83ffdffe861bc09ba7ecd846e2429d91a3147d292d2e8ec3fc4fa2d17948636",
+          "published_sha256": "b83ffdffe861bc09ba7ecd846e2429d91a3147d292d2e8ec3fc4fa2d17948636",
+          "bytes": 14553,
+          "changes": []
+        },
+        {
+          "path": "agents/openai.yaml",
+          "source_sha256": "6a1973602fb04b513604c99af53bc5279c67835cfa0035aeca31fa97469713ae",
+          "published_sha256": "6a1973602fb04b513604c99af53bc5279c67835cfa0035aeca31fa97469713ae",
+          "bytes": 265,
+          "changes": []
+        },
+        {
+          "path": "references/relationship-model.md",
+          "source_sha256": "87261d4aa8a4db977d9e9040167d2a281f2e472d7bbafd48b4d550c47804daee",
+          "published_sha256": "87261d4aa8a4db977d9e9040167d2a281f2e472d7bbafd48b4d550c47804daee",
+          "bytes": 6013,
+          "changes": []
+        }
+      ]
+    },
+    {
+      "name": "ye-job-search-application",
+      "source_directory": "~/.codex/skills/ye-job-search-application",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "source_sha256": "97d4878ce1dfdc6f413ee028ad1bed8f61541d7d35f6f9e32b4b161ae33c13af",
+          "published_sha256": "97d4878ce1dfdc6f413ee028ad1bed8f61541d7d35f6f9e32b4b161ae33c13af",
+          "bytes": 14073,
+          "changes": []
+        },
+        {
+          "path": "agents/openai.yaml",
+          "source_sha256": "59e61e87e18b73073a176da2d5b53e195ba5af64cad2956986fb27d8bfc05a91",
+          "published_sha256": "59e61e87e18b73073a176da2d5b53e195ba5af64cad2956986fb27d8bfc05a91",
+          "bytes": 287,
+          "changes": []
+        },
+        {
+          "path": "config/notion.json",
+          "source_sha256": "e20811ec3b8f8d448ca83f16e7e16644257579aba7594e89a4d50b527de06ae6",
+          "published_sha256": "8cb31ab4af1e86ed609906990145d4bf90d89b006c90c739d641fa93f05776e0",
+          "bytes": 7827,
+          "changes": [
+            {
+              "path": "notion.expected_account",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.application_archive.id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.application_archive.url",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.application_archive.all_view_id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.application_archive.schema.properties.url",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.application_archive.schema.body_template.id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.application_archive.schema.body_template.url",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.application_archive.schema.body_template.contacts.template_data_source_id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.application_archive.observed_access",
+              "action": "clear_historical_access_observations"
+            },
+            {
+              "path": "notion.company_poc.id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.company_poc.url",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.company_poc.all_view_id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.company_poc.schema.body_template.id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.company_poc.schema.body_template.url",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.company_poc.schema.body_template.contacts.template_data_source_id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.company_poc.observed_access",
+              "action": "clear_historical_access_observations"
+            },
+            {
+              "path": "notion.rules_and_templates.id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.rules_and_templates.url",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.rules_and_templates.expected_version",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.rules_and_templates.end_marker",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.rules_and_templates.observed_access",
+              "action": "clear_historical_access_observations"
+            },
+            {
+              "path": "notion.rules_and_templates.parent_database.id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.rules_and_templates.parent_database.url",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.rules_and_templates.parent_database.view_id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.search_runs.id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.search_runs.url",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.search_runs.expected_version",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.search_runs.end_marker",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.search_runs.observed_access",
+              "action": "clear_historical_access_observations"
+            },
+            {
+              "path": "notion.search_runs.parent_database.id",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.search_runs.parent_database.url",
+              "action": "set_null"
+            },
+            {
+              "path": "notion.search_runs.parent_database.view_id",
+              "action": "set_null"
+            },
+            {
+              "path": "operational_state_path",
+              "action": "set_null"
+            },
+            {
+              "path": "legacy_evidence",
+              "action": "clear_private_evidence_paths"
+            },
+            {
+              "path": "limitations; notion.company_poc.limitations",
+              "action": "remove_private_import_history"
+            }
+          ]
+        },
+        {
+          "path": "references/application-evidence.md",
+          "source_sha256": "159674d98735abddc9a23cbb3addbe6954a0d0053f4d40eb4c66549b3f153266",
+          "published_sha256": "159674d98735abddc9a23cbb3addbe6954a0d0053f4d40eb4c66549b3f153266",
+          "bytes": 6366,
+          "changes": []
+        },
+        {
+          "path": "references/browser-handoff-validation.md",
+          "source_sha256": "73e55875a2e5b64f08c62ea2e4bb09eda435d44be69cf80a8c1a59cf6bb66eeb",
+          "published_sha256": "73e55875a2e5b64f08c62ea2e4bb09eda435d44be69cf80a8c1a59cf6bb66eeb",
+          "bytes": 6133,
+          "changes": []
+        },
+        {
+          "path": "references/notion-sync.md",
+          "source_sha256": "8023ba1d5324ff129e88c7c5062b3776a7cf7fcd74b46dd0a8f3b8bfb1124e7e",
+          "published_sha256": "8023ba1d5324ff129e88c7c5062b3776a7cf7fcd74b46dd0a8f3b8bfb1124e7e",
+          "bytes": 10126,
+          "changes": []
+        },
+        {
+          "path": "references/selected-role-execution.md",
+          "source_sha256": "19eb3e0c182763f1adc3de3269f9d0be6454c222c30e304f5744cffd29d7c66f",
+          "published_sha256": "19eb3e0c182763f1adc3de3269f9d0be6454c222c30e304f5744cffd29d7c66f",
+          "bytes": 18818,
+          "changes": []
+        },
+        {
+          "path": "references/verification.md",
+          "source_sha256": "ee902a9a07f404dcf2afaef7d6d059bbd0af41c4a92937cd7787d39e95318455",
+          "published_sha256": "ee902a9a07f404dcf2afaef7d6d059bbd0af41c4a92937cd7787d39e95318455",
+          "bytes": 2642,
+          "changes": []
+        },
+        {
+          "path": "scripts/notion_contract.py",
+          "source_sha256": "eee085a847c49b3a52de029012901b5a9f0539f40caa378e496c7e194ae8e5af",
+          "published_sha256": "eee085a847c49b3a52de029012901b5a9f0539f40caa378e496c7e194ae8e5af",
+          "bytes": 26008,
+          "changes": []
+        },
+        {
+          "path": "tests/fixtures/review-workspace.html",
+          "source_sha256": "ed38d3d335c9b32105f2790ec8337bd91d22b0466d435d40c4bbac9a871d2ab1",
+          "published_sha256": "ed38d3d335c9b32105f2790ec8337bd91d22b0466d435d40c4bbac9a871d2ab1",
+          "bytes": 11013,
+          "changes": []
+        },
+        {
+          "path": "tests/test_notion_contract.py",
+          "source_sha256": "a0fad0e1d3131ee35f1e463cacee251246e82af6c4bd6b6d75a24ab195a5247f",
+          "published_sha256": "a0fad0e1d3131ee35f1e463cacee251246e82af6c4bd6b6d75a24ab195a5247f",
+          "bytes": 24190,
+          "changes": []
+        }
+      ]
+    }
+  ]
+}

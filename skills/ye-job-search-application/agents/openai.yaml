@@ -1,0 +1,4 @@
+interface:
+  display_name: "ye-Job Search & Application"
+  short_description: "Find AI PM roles and track applications and referrals"
+  default_prompt: "Use $ye-job-search-application to find relevant AI PM roles and prepare the next application steps from my current tracking records."

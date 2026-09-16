@@ -1,0 +1,4 @@
+interface:
+  display_name: "ye-Company Networking & PoC"
+  short_description: "Maintain company contacts and evolving referral paths"
+  default_prompt: "Use $ye-company-networking-poc to find or reuse the right company contacts and update my relationship records."

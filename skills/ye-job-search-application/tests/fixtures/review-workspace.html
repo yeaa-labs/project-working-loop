@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Synthetic review workspace fixture</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, sans-serif;
+      line-height: 1.45;
+      background: #f6f7fb;
+      color: #172033;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem 1rem;
+    }
+
+    main {
+      box-sizing: border-box;
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 2rem;
+      border: 1px solid #c9d0df;
+      border-radius: 0.75rem;
+      background: #fff;
+      box-shadow: 0 0.25rem 1rem rgb(23 32 51 / 8%);
+    }
+
+    .notice {
+      margin: 0 0 1.25rem;
+      padding: 0.75rem;
+      border-left: 0.25rem solid #7950f2;
+      background: #f1efff;
+      font-weight: 650;
+    }
+
+    form {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    label {
+      font-weight: 650;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 2.5rem;
+      padding: 0.55rem;
+      border: 1px solid #788399;
+      border-radius: 0.35rem;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 8rem;
+      resize: vertical;
+    }
+
+    .status {
+      padding: 0.75rem;
+      border: 1px solid #9eb0ce;
+      border-radius: 0.35rem;
+      background: #f5f8ff;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+  </style>
+</head>
+<body>
+  <main id="fixture-root">
+    <p class="notice">Synthetic offline test surface only. It has no real job, recipient, submission, or persistent storage.</p>
+    <noscript>This fixture needs JavaScript only to select a synthetic mode and display local test status.</noscript>
+  </main>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const root = document.getElementById('fixture-root');
+      const params = new URLSearchParams(window.location.search);
+      const mode = params.get('mode');
+      const validContacts = new Set([
+        'Contact1', 'Contact2', 'Contact3', 'Contact4',
+        'Contact5', 'Contact6', 'Contact7', 'Contact8'
+      ]);
+
+      function replaceContent(fragment) {
+        root.replaceChildren(fragment);
+      }
+
+      function makeNotice() {
+        const notice = document.createElement('p');
+        notice.className = 'notice';
+        notice.textContent = 'Synthetic offline test surface only. Do not send or submit anything from this page.';
+        return notice;
+      }
+
+      function renderApplication() {
+        document.title = 'Synthetic application form — review workspace';
+        const fragment = document.createDocumentFragment();
+        const heading = document.createElement('h1');
+        heading.textContent = 'Synthetic application form';
+        fragment.append(heading, makeNotice());
+
+        const description = document.createElement('p');
+        description.textContent = 'Use dummy-only values to test visible field, attachment, reset, and handoff behavior.';
+        fragment.append(description);
+
+        const form = document.createElement('form');
+        form.id = 'application-form';
+        form.noValidate = true;
+
+        const fullNameLabel = document.createElement('label');
+        fullNameLabel.htmlFor = 'full-name';
+        fullNameLabel.textContent = 'Full name';
+        const fullName = document.createElement('input');
+        fullName.id = 'full-name';
+        fullName.name = 'fullName';
+        fullName.type = 'text';
+        fullName.autocomplete = 'off';
+
+        const emailLabel = document.createElement('label');
+        emailLabel.htmlFor = 'email';
+        emailLabel.textContent = 'Email';
+        const email = document.createElement('input');
+        email.id = 'email';
+        email.name = 'email';
+        email.type = 'email';
+        email.autocomplete = 'off';
+
+        const resumeLabel = document.createElement('label');
+        resumeLabel.htmlFor = 'resume-file';
+        resumeLabel.textContent = 'Resume file';
+        const resume = document.createElement('input');
+        resume.id = 'resume-file';
+        resume.name = 'resumeFile';
+        resume.type = 'file';
+        resume.accept = '.pdf,.doc,.docx,.txt';
+
+        const authorizationLabel = document.createElement('label');
+        authorizationLabel.htmlFor = 'work-authorization';
+        authorizationLabel.textContent = 'Work authorization';
+        const authorization = document.createElement('select');
+        authorization.id = 'work-authorization';
+        authorization.name = 'workAuthorization';
+        const choose = new Option('Choose one', '');
+        const yes = new Option('Yes', 'yes');
+        const no = new Option('No', 'no');
+        authorization.add(choose);
+        authorization.add(yes);
+        authorization.add(no);
+
+        const attachmentStatus = document.createElement('p');
+        attachmentStatus.className = 'status';
+        const attachmentLabel = document.createElement('strong');
+        attachmentLabel.textContent = 'Attachment filename: ';
+        const attachmentFilename = document.createElement('output');
+        attachmentFilename.id = 'attachment-filename';
+        attachmentFilename.setAttribute('aria-live', 'polite');
+        attachmentStatus.append(attachmentLabel, attachmentFilename);
+
+        const filledStatus = document.createElement('section');
+        filledStatus.className = 'status';
+        filledStatus.setAttribute('aria-labelledby', 'filled-value-status-heading');
+        const filledHeading = document.createElement('h2');
+        filledHeading.id = 'filled-value-status-heading';
+        filledHeading.textContent = 'Filled-value status';
+        const filledValueStatus = document.createElement('output');
+        filledValueStatus.id = 'filled-value-status';
+        filledValueStatus.setAttribute('aria-live', 'polite');
+        filledStatus.append(filledHeading, filledValueStatus);
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+        const reset = document.createElement('button');
+        reset.id = 'reset-test-form';
+        reset.type = 'reset';
+        reset.textContent = 'Reset test form';
+        const submit = document.createElement('button');
+        submit.id = 'submit-application';
+        submit.type = 'button';
+        submit.disabled = true;
+        submit.textContent = 'Submit application';
+        actions.append(reset, submit);
+
+        form.append(
+          fullNameLabel, fullName,
+          emailLabel, email,
+          resumeLabel, resume,
+          authorizationLabel, authorization,
+          attachmentStatus, filledStatus, actions
+        );
+        fragment.append(form);
+        replaceContent(fragment);
+
+        function present(value) {
+          return value ? 'filled' : 'missing';
+        }
+
+        function updateStatus() {
+          const file = resume.files && resume.files[0];
+          attachmentFilename.textContent = file ? file.name : 'No file selected';
+          filledValueStatus.textContent = [
+            `Full name: ${present(fullName.value.trim())}`,
+            `Email: ${present(email.value.trim())}`,
+            `Resume file: ${file ? 'attached' : 'missing'}`,
+            `Work authorization: ${present(authorization.value)}`
+          ].join(' · ');
+        }
+
+        for (const field of [fullName, email, resume, authorization]) {
+          field.addEventListener('input', updateStatus);
+          field.addEventListener('change', updateStatus);
+        }
+        form.addEventListener('reset', () => window.setTimeout(updateStatus, 0));
+        updateStatus();
+      }
+
+      function renderInvitation(person) {
+        document.title = `Synthetic invitation — ${person}`;
+        const fragment = document.createDocumentFragment();
+        const heading = document.createElement('h1');
+        heading.textContent = `Synthetic invitation composer — ${person}`;
+        fragment.append(heading, makeNotice());
+
+        const identity = document.createElement('p');
+        identity.id = 'recipient-identity';
+        identity.textContent = `Synthetic recipient identity: ${person}`;
+        fragment.append(identity);
+
+        const form = document.createElement('form');
+        form.id = 'invitation-composer';
+        form.noValidate = true;
+        const noteLabel = document.createElement('label');
+        noteLabel.htmlFor = 'invitation-note';
+        noteLabel.textContent = 'Invitation note';
+        const note = document.createElement('textarea');
+        note.id = 'invitation-note';
+        note.name = 'invitationNote';
+        note.maxLength = 300;
+        note.setAttribute('aria-describedby', 'invitation-count');
+        const count = document.createElement('output');
+        count.id = 'invitation-count';
+        count.className = 'status';
+        count.setAttribute('aria-live', 'polite');
+        const send = document.createElement('button');
+        send.id = 'send-invitation';
+        send.type = 'button';
+        send.disabled = true;
+        send.textContent = 'Send invitation';
+        form.append(noteLabel, note, count, send);
+        fragment.append(form);
+        replaceContent(fragment);
+
+        function updateCount() {
+          count.textContent = `${note.value.length} / 300 characters`;
+        }
+
+        note.addEventListener('input', updateCount);
+        updateCount();
+      }
+
+      function renderResearch() {
+        document.title = 'Synthetic research page — review workspace';
+        const fragment = document.createDocumentFragment();
+        const heading = document.createElement('h1');
+        heading.textContent = 'Synthetic research page';
+        const copy = document.createElement('p');
+        copy.textContent = 'This disposable page exists only to test research in another tab without reusing a review page.';
+        fragment.append(heading, makeNotice(), copy);
+        replaceContent(fragment);
+      }
+
+      function renderStart() {
+        document.title = 'Synthetic review workspace fixture';
+        const fragment = document.createDocumentFragment();
+        const heading = document.createElement('h1');
+        heading.textContent = 'Synthetic review workspace fixture';
+        const copy = document.createElement('p');
+        copy.textContent = 'Choose a query mode: application, research, or invite with Contact1 through Contact8.';
+        fragment.append(heading, makeNotice(), copy);
+        replaceContent(fragment);
+      }
+
+      if (mode === 'application') {
+        renderApplication();
+      } else if (mode === 'research') {
+        renderResearch();
+      } else if (mode === 'invite' && validContacts.has(params.get('person'))) {
+        renderInvitation(params.get('person'));
+      } else {
+        renderStart();
+      }
+    })();
+  </script>
+</body>
+</html>
