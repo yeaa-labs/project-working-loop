@@ -1,0 +1,167 @@
+# This is the only editable source for unified-delegation bindings, launch
+# choices, compatibility profiles, and qualitative routing thresholds. It must
+# never contain a credential or a value copied from a local secret file.
+
+[metadata]
+schema_version = 1
+name = "unified-delegation"
+
+[policy]
+direct_worker_cap = 2
+local_max_minutes = 10
+# Neutral heavy-work threshold names. The band describes workload size only; it
+# never names the worker that happens to be configured for heavy execution.
+heavy_near_minutes = 30
+heavy_near_tolerance_minutes = 2
+default_timeout_seconds = 3600
+max_timeout_seconds = 7200
+require_independent_review_before_apply = true
+
+[routing]
+# Automatic heavy routing resolves heavy_primary. heavy_exhaustion_fallback is a
+# continuation route used only after one genuine Opus capacity-exhaustion
+# failure envelope (token quota, usage/rate window, or context window). Both are
+# plain worker references, so a maintainer can change them here alone. An
+# explicit per-task DeepSeek selection remains available and unchanged.
+heavy_primary = "opus"
+heavy_exhaustion_fallback = "deepseek"
+# Second continuation edge, authorized by the owner on 2026-09-07: when the
+# configured DeepSeek provider itself reports insufficient balance (HTTP 402
+# Payment Required / Insufficient Balance at insufficient_balance_route's
+# configured endpoint), the terminal fallback runs once. It applies to a
+# DeepSeek continuation and to an explicitly selected DeepSeek route. Every
+# other DeepSeek failure still stops the dispatch. The route must own a
+# configured provider, the fallback terminates the chain, and load-time
+# validation rejects cycles, repeated routes, reverse edges, and any edge
+# leaving the terminal route.
+insufficient_balance_route = "deepseek"
+insufficient_balance_fallback = "terra"
+
+[launchers.codex]
+command = ["/Applications/ChatGPT.app/Contents/Resources/codex", "exec"]
+ignore_user_config = true
+ephemeral = true
+skip_git_repo_check = true
+json_output = true
+
+[permission_profiles.delegation_worker]
+# `codex exec` receives this as one inline TOML table. Do not add legacy
+# `--sandbox`, `sandbox_mode`, or sandbox_workspace_write settings: those
+# override or bypass `default_permissions` on the tested local CLI.
+root_access = "read"
+stage_access = "write"
+network_enabled = false
+
+[permission_profiles.delegation_reviewer]
+# The reviewer receives a fresh Codex process with no write permission. Its
+# evidence package is prepared by the controller before this command starts.
+root_access = "read"
+network_enabled = false
+
+[launchers.claude]
+command = ["claude"]
+no_chrome = true
+strict_mcp_config = true
+no_session_persistence = true
+# Read-only host control and review keep plan mode. The Claude worker instead
+# uses worker_permission_mode with an exact approved-output allow-rule list; its
+# boundary is the restricted file-tool set, not an OS sandbox profile.
+permission_mode = "plan"
+worker_permission_mode = "dontAsk"
+safe_mode = true
+restricted = true
+empty_mcp_config = '{"mcpServers":{}}'
+worker_tools = "Read,Glob,Grep,Write,Edit"
+
+[providers.deepseek]
+# The child process receives this provider definition through `codex exec
+# --config`; it does not switch the controller's global provider.
+name = "DeepSeek"
+base_url = "https://api.deepseek.com"
+wire_api = "responses"
+environment_key = "DEEPSEEK_API_KEY"
+# Optional authorized fallback for the selected provider only. The environment
+# variable above takes precedence. This path is the sole executable-source
+# location for this default; validation never opens the file.
+credential_file = "/Users/xinnanye/.codex/secrets/deepseek.env"
+
+[bindings.codex_highest]
+model = "gpt-6-astra"
+effort = "xhigh"
+launcher = "codex"
+sandbox = "read-only"
+
+[bindings.claude_highest]
+model = "fable"
+effort = "max"
+launcher = "claude"
+sandbox = "read-only"
+
+[bindings.terra_execution]
+model = "gpt-5.6-terra"
+effort = "ultra"
+launcher = "codex"
+sandbox = "workspace-write"
+
+[bindings.opus_execution]
+# Heavy execution primary. `sandbox` is the semantic write intent recorded in
+# receipts; the enforced Claude boundary is the restricted file-tool set plus
+# exact approved-output Write/Edit rules built by the launcher.
+model = "claude-opus-5"
+effort = "xhigh"
+launcher = "claude"
+sandbox = "workspace-write"
+
+[bindings.deepseek_execution]
+model = "deepseek-v4-pro"
+effort = "max"
+launcher = "codex"
+provider = "deepseek"
+sandbox = "workspace-write"
+
+[hosts.codex]
+# The equal binding references are deliberate: a fresh independent reviewer
+# receives the same configured highest-model binding as the controller.
+controller_binding = "codex_highest"
+reviewer_binding = "codex_highest"
+
+[hosts.claude]
+controller_binding = "claude_highest"
+reviewer_binding = "claude_highest"
+
+[workers.terra]
+binding = "terra_execution"
+
+[workers.opus]
+binding = "opus_execution"
+
+[workers.deepseek]
+binding = "deepseek_execution"
+
+# These files exist only for app compatibility. Canonical routing resolves the
+# host and worker sections above; callers must not rely on an already loaded
+# profile after this TOML has changed.
+[compatibility_profiles.sol-readonly]
+binding = "codex_highest"
+sandbox = "read-only"
+mode = "legacy_readonly"
+
+[compatibility_profiles.terra-worker]
+binding = "terra_execution"
+sandbox = "workspace-write"
+mode = "standard_worker"
+
+[compatibility_profiles.luna-worker]
+binding = "terra_execution"
+sandbox = "workspace-write"
+mode = "legacy_alias"
+
+[compatibility_profiles.spark-worker]
+binding = "terra_execution"
+sandbox = "workspace-write"
+mode = "legacy_alias"
+
+[compatibility_profiles.sol-write-takeover]
+binding = "codex_highest"
+sandbox = "workspace-write"
+mode = "manual_only"

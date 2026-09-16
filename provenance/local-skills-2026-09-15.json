@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "copied_on": "2026-09-15",
+  "source_machine": "Mac Mini",
+  "method": "byte-for-byte copy of regular source files; no skill execution",
+  "repository_license_preserved": "LICENSE",
+  "source_license_status": "NOASSERTION",
+  "source_license_files_found": [],
+  "license_grant_added": false,
+  "excluded_directory_names": [
+    "__pycache__",
+    ".pytest_cache"
+  ],
+  "skills": [
+    {
+      "name": "hi-dele-to-low",
+      "source_directory": "~/.codex/skills/hi-dele-to-low",
+      "claude_alias": "~/.claude/skills/hi-dele-to-low",
+      "upstream_repository": null,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 19611,
+          "sha256": "2cb155a56a8e457e5c4b0cce69ca0ab99b6ed96c15687647aad5ffff8a837099",
+          "executable": false
+        },
+        {
+          "path": "agents/openai.yaml",
+          "bytes": 293,
+          "sha256": "da8ac1d5766866885e77c19561f2acd47f5fc3ffc06ffed46e018bcd01db2d56",
+          "executable": false
+        },
+        {
+          "path": "config/delegation.toml",
+          "bytes": 5685,
+          "sha256": "6046e33863b882196563476442b94a6372f4a554de1f6f758526128e67add4f3",
+          "executable": false
+        },
+        {
+          "path": "references/acceptance.md",
+          "bytes": 8678,
+          "sha256": "51f879cf9fd4ac6df0639eabee8f8a6adcf72f23d8d06910c002030640d14525",
+          "executable": false
+        },
+        {
+          "path": "references/routing-contract.md",
+          "bytes": 8899,
+          "sha256": "17a06dc8533b8c560fdf5db48b74f27d1f985aa824a090add444163444b99090",
+          "executable": false
+        },
+        {
+          "path": "references/worker-contract.md",
+          "bytes": 10911,
+          "sha256": "8dbed1d8357ca4155883cd09a229cb638b9716b59392ffc5731307ce34eb3c43",
+          "executable": false
+        },
+        {
+          "path": "scripts/delegation_core.py",
+          "bytes": 190893,
+          "sha256": "f13754d3bbd2d993bb9e741e251c8cd6e2605efe5c84544d00543532ae45f425",
+          "executable": false
+        },
+        {
+          "path": "scripts/dispatch_worker.py",
+          "bytes": 6917,
+          "sha256": "e76538e3796e26069b1abd91e4f5675382c2c76ae1338894aeb3e6eecc02407e",
+          "executable": true
+        },
+        {
+          "path": "scripts/generate_profiles.py",
+          "bytes": 1956,
+          "sha256": "64cc07e36f32aa588c4d40a24dbdd9f1e6a9b0a1684661880296e812502bbbe9",
+          "executable": true
+        },
+        {
+          "path": "scripts/review_worker.py",
+          "bytes": 2719,
+          "sha256": "cec43418dd6b75a87e906a98301a6554b6a2fa4547a5d732f8a0fd395fd57877",
+          "executable": true
+        },
+        {
+          "path": "scripts/selfcheck.sh",
+          "bytes": 1658,
+          "sha256": "856825a001a2eb57d63d1e539520d25e1817eaa447902b55326d63fc41aa1c41",
+          "executable": false
+        },
+        {
+          "path": "scripts/validate_receipt.py",
+          "bytes": 1065,
+          "sha256": "416dd40c3dbeaba682028f69004fb332be872423544dfbfa3177db554c3fab55",
+          "executable": true
+        },
+        {
+          "path": "tests/test_unified_delegation.py",
+          "bytes": 154912,
+          "sha256": "0ccdd8f4e4d4cb1eb22cd683aaf1dafc913d307dcd301c644926879295853baf",
+          "executable": false
+        }
+      ],
+      "excluded_files": [
+        {
+          "path": ".pytest_cache/.gitignore",
+          "reason": "generated cache"
+        },
+        {
+          "path": ".pytest_cache/CACHEDIR.TAG",
+          "reason": "generated cache"
+        },
+        {
+          "path": ".pytest_cache/README.md",
+          "reason": "generated cache"
+        },
+        {
+          "path": ".pytest_cache/v/cache/nodeids",
+          "reason": "generated cache"
+        },
+        {
+          "path": "scripts/__pycache__/delegation_core.cpython-314.pyc",
+          "reason": "generated cache"
+        },
+        {
+          "path": "scripts/__pycache__/dispatch_worker.cpython-314.pyc",
+          "reason": "generated cache"
+        },
+        {
+          "path": "scripts/__pycache__/validate_receipt.cpython-314.pyc",
+          "reason": "generated cache"
+        },
+        {
+          "path": "tests/__pycache__/test_validate_receipt.cpython-314-pytest-9.0.3.pyc",
+          "reason": "generated cache"
+        }
+      ]
+    },
+    {
+      "name": "chatgpt-web-delegation",
+      "source_directory": "~/.codex/skills/chatgpt-web-delegation",
+      "claude_alias": "~/.claude/skills/chatgpt-web-delegation",
+      "upstream_repository": null,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 4402,
+          "sha256": "140c27f4de7052c237ace60ff5835d341605415752ef724184d18aa2ebf2813d",
+          "executable": false
+        },
+        {
+          "path": "agents/openai.yaml",
+          "bytes": 327,
+          "sha256": "7db3314184ede308508595d23cf84e71d0a0e82a79575be50ae9e2d72578745a",
+          "executable": false
+        },
+        {
+          "path": "references/handoff-template.md",
+          "bytes": 2495,
+          "sha256": "da3cdffb60992077ebe9444df14c15ae6f4834bf11cc2cef568e3a42de64d8c5",
+          "executable": false
+        },
+        {
+          "path": "references/receipt-schema.md",
+          "bytes": 1962,
+          "sha256": "5b2b5d13e7d135399560c5b60b4a489572da940cc62c48fefcb2347695f47e0f",
+          "executable": false
+        },
+        {
+          "path": "references/routing-matrix.md",
+          "bytes": 4003,
+          "sha256": "1855ce386fa389692a53ef78dbfb1c5dd908d725c72b0e7ed26f30a2c24185fc",
+          "executable": false
+        },
+        {
+          "path": "references/usage-aware-routing.md",
+          "bytes": 1877,
+          "sha256": "70fedccefd256a9063b25f293fe6e5a8daaf893c48838571aa9f8a4a8f6a76d7",
+          "executable": false
+        },
+        {
+          "path": "scripts/read_codex_usage.py",
+          "bytes": 4052,
+          "sha256": "e2dfe8a0496fdbb374dba62809e1a819b2b77cc680bd71d7a6c4bb76f7dc2b1a",
+          "executable": true
+        }
+      ],
+      "excluded_files": []
+    }
+  ]
+}

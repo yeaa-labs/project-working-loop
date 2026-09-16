@@ -1,0 +1,7 @@
+interface:
+  display_name: "hi-dele-to-low"
+  short_description: "Route substantial execution through staged workers and independent review"
+  default_prompt: "Use $hi-dele-to-low to classify substantial work and prepare a staged, auditable route."
+
+policy:
+  allow_implicit_invocation: false

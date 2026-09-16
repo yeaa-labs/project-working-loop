@@ -1,0 +1,6 @@
+interface:
+  display_name: "ChatGPT Web Delegation"
+  short_description: "Default safe knowledge work to ChatGPT Web"
+  default_prompt: "Use $chatgpt-web-delegation to send all safe Web-compatible work to the Y.EAA ChatGPT Project and keep only local or sensitive execution in Codex."
+policy:
+  allow_implicit_invocation: true
