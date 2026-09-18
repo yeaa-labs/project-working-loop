@@ -25,6 +25,20 @@ Current employee/direct-contact and mutual-path views share one company entry. D
 
 Record the user's relationship to a person separately from evidence that person knows the target. A visible mutual does not prove how well two people know each other or that an introduction is appropriate.
 
+## Opportunity-recipient-action records
+
+Durable identity and relationship knowledge may be reused, but each active networking decision is scoped to one opportunity. Keep a current operational record with:
+
+- exact employer, role, requisition or canonical job URL, and application revision;
+- verified recipient identity and current affiliation;
+- recipient category and opportunity-specific evidence grade (`E1`–`E4`);
+- intended outcome and one justified next action;
+- application state (`considering`, `applying`, `applied`, or `unknown`);
+- relationship/action state such as `not_contacted`, `invite_pending`, `connected`, `willing_to_help`, `introduction_offered`, `contact_reports_referred`, `official_referral_confirmed`, `declined`, or `unknown`;
+- source, observation date, uncertainty, duplication check, and stop condition.
+
+Do not promote a relationship state from silence, acceptance, or optimistic wording. `connected` does not mean familiar or willing. `introduction_offered` does not mean completed. A contact-reported referral does not become employer-confirmed without matching evidence. A newer application revision supersedes stale message wording but does not erase still-current person or affiliation evidence.
+
 ## Update current values and append history
 
 Each change records person/path reference, field, previous/new value, event date when known, observation date, source, and confirmation basis. Keep an accessible current view plus append-only history; do not erase conflicting evidence. A new user statement can supersede an older familiarity or preference value while retaining history.

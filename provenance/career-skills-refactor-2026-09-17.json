@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-09-17",
+  "base_snapshot_commit": "789ca402a2b6257759f8f71574d71e338fa7d6ec",
+  "implementation_branch": "codex/career-networking-refactor-2026-09-17",
+  "research_source": "https://chatgpt.com/g/g-p-697efb73e2d88191bf19a05f21b6352e-y-eaa/c/6aac9730-988c-83e9-8e23-fa137c9ad421",
+  "scope": "Opportunity-specific stakeholder planning, outcome-first outreach design, application-state handling, and verified LinkedIn invitation delivery",
+  "configuration_status": "Repository config/notion.json remains the sanitized, unconfigured public template. Installed private bindings were not copied.",
+  "privacy": {
+    "credentials_copied": false,
+    "cookies_copied": false,
+    "environment_files_copied": false,
+    "private_notion_bindings_copied": false,
+    "private_sessions_copied": false
+  },
+  "licenses_preserved": [
+    "skills/ye-company-networking-poc/LICENSE",
+    "skills/ye-job-search-application/LICENSE"
+  ],
+  "files": [
+    {"path": "skills/ye-company-networking-poc/SKILL.md", "sha256": "d64a7dfc5a87462ac2298836f36d6e93ba7f7cb48c0031fc03fb29c92c916f23"},
+    {"path": "skills/ye-company-networking-poc/LICENSE", "sha256": "619b0819d51d5f67b344447460cb157ab62890e0ee2df004dabeb8521d777faa"},
+    {"path": "skills/ye-company-networking-poc/references/relationship-model.md", "sha256": "f410b85c74ce7b30c971f3eb93908336d960ad1f1f22b224ac4a658e0bb1d466"},
+    {"path": "skills/ye-company-networking-poc/references/stakeholder-planning.md", "sha256": "f4d7f9511d8614a1393f8448a11bf41403c4e460982c72b83066a6cde86428b1"},
+    {"path": "skills/ye-company-networking-poc/references/outreach-design.md", "sha256": "add7d0c1a68bdaeab316c853bcc28ede2a188583b60e41d34d34b23138ee4eb2"},
+    {"path": "skills/ye-company-networking-poc/references/linkedin-delivery.md", "sha256": "0d7b01639efa61e3e7ddf854492ecc327cf9bcbb9499e2f4f160e2f0f0ff6421"},
+    {"path": "skills/ye-company-networking-poc/scripts/check_invitation.py", "sha256": "1d3f52fc2994733ea6a21ef926c3aa7ef384cc479dcaebab87aa9cb2183cd031"},
+    {"path": "skills/ye-company-networking-poc/tests/test_check_invitation.py", "sha256": "8a805079156d7f51281a604f42fdf30342886acc62d7818fac57cb7e7c0e2fa6"},
+    {"path": "skills/ye-company-networking-poc/tests/networking-refactor-cases.md", "sha256": "cf9a7262b755930b6fdaa553e3ff6a83b23a105a171cc7b01be44b4a509c4c3a"},
+    {"path": "skills/ye-job-search-application/SKILL.md", "sha256": "d45de8a4aa71052b02eb8ea7b4cd69e0ea79940b2249ee23359d01cf9dbd03b5"},
+    {"path": "skills/ye-job-search-application/LICENSE", "sha256": "619b0819d51d5f67b344447460cb157ab62890e0ee2df004dabeb8521d777faa"},
+    {"path": "skills/ye-job-search-application/references/selected-role-execution.md", "sha256": "a2c87825be8952b0299c7759bf0cd23ee208fc18c8d3e461db64e43e58b939fb"},
+    {"path": "skills/ye-job-search-application/references/user-standing-defaults.md", "sha256": "3e24fbe31b83cf0e29417d858fa244a5df92eaeaec631fe05b4957bb95d20a4e"}
+  ]
+}
